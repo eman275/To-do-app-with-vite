@@ -12,6 +12,7 @@ interface TodoState {
   addTodo: (title: string) => void;
   toggleTodo: (id: string) => void;
   removeTodo: (id: string) => void;
+  updateTodo: (id: string, text: string) => void
 }
 
 export const useStore = create<TodoState>(set => ({
@@ -25,5 +26,11 @@ export const useStore = create<TodoState>(set => ({
   removeTodo: (id) =>
     set(state => ({
       todos: state.todos.filter(todo => todo.id !== id)
+    })),
+    updateTodo: (id: string, text: string) =>
+    set(state => ({
+      todos: state.todos.map(todo =>
+        todo?.id === id ? { ...todo, title: text } : todo
+      ),
     })),
 }));
