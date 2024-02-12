@@ -10,7 +10,6 @@ function App() {
   position="bottom-center"
   reverseOrder={false}
 />
-      <h1>Todo List</h1>
       <TodoForm />
       <TodoList />
     </div>

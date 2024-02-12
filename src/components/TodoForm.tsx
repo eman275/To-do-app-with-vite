@@ -28,7 +28,7 @@ const TodoForm = () => {
   return (
     <div style={{marginBottom: "20px"}}>
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register('title')} placeholder="Add new todo" />
+      <input {...register('title')} placeholder="start typing" style={{padding:".3rem"}} />
       {errors.title && <p>{errors.title.message}</p>}
       <Button type="submit"     color="primary"
  style={{marginLeft: "15px"}}>Submit</Button>
