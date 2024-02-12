@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import toast from 'react-hot-toast';
 import { useStore } from '../store/todosStore';
+import { Button } from 'reactstrap';
 
 const schema = z.object({
   title: z.string().min(3, { message: "Title must be at least 3 characters long" }).nonempty({ message: "Title is required" }),
@@ -25,11 +26,13 @@ const TodoForm = () => {
   };
 
   return (
+    <div style={{marginBottom: "20px"}}>
     <form onSubmit={handleSubmit(onSubmit)}>
       <input {...register('title')} placeholder="Add new todo" />
       {errors.title && <p>{errors.title.message}</p>}
-      <button type="submit">Add Todo</button>
+      <Button type="submit" color="success"  style={{marginLeft: "15px"}}>Add Todo</Button>
     </form>
+    </div>
   );
 };
 
