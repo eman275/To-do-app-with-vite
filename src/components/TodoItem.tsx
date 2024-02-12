@@ -1,6 +1,6 @@
-// components/TodoItem.tsx
 import React from 'react';
 import { useStore } from '../store/todosStore';
+import { Todo } from '../types';
 
 const TodoItem: React.FC<{ todo: Todo }> = ({ todo }) => {
   const toggleTodo = useStore((state) => state.toggleTodo);
